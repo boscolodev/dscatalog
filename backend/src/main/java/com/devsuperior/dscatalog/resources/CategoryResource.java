@@ -50,15 +50,15 @@ public class CategoryResource {
 	
 	
 	//Atualização de Dados
-	@PutMapping(value = "{id}")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<CategoryDTO> update(@PathVariable Long id, @RequestBody CategoryDTO dto){
 		dto = service.update(id,dto);
 		return ResponseEntity.ok().body(dto);
 	}	
 	
 	//Deleção de Dados
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<CategoryDTO> update(@PathVariable Long id){
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id){
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}	
